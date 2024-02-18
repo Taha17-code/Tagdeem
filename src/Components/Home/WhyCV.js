@@ -21,7 +21,7 @@ const WhyCV = () => {
     },
     {
       image:selection,
-      title:'تحديد المتقدمينالمناسبين',
+      title:'تحديد المتقدمين المناسبين',
       pragraph:'تساعد السير الذاتية الجيدة من حيث الصياغة والتنظيم المتقدم للوظيفة بالانتقال إلى مرحلة المقابلة أو اختبار القدرات'
 
     }
@@ -29,15 +29,24 @@ const WhyCV = () => {
   ]
 
   return (
-    <div style={{width:'100%',margin:'20px'}} >
+    <div style={{paddingTop:'100px',width:'100%',margin:'20px'}} >
 
-    <div id='whycv' key={index}>
+    <p style={{fontSize:'50px',fontWeight:'bolder',textAlign:'center'}}>لماذا السيرة الذاتية ؟</p>
+
+    <div id='whycv'>
     {
       pointsOfWhyCV.map((item,index)=>{
         return(
-          <div>
-           <div><img src={item.image}/></div>
+          <div  className="point" key={index}>
+       <div className='icon'><img src={item.image} /></div>
+
+       <div> <p style={{fontSize:'20px',fontWeight:'bold'}}>{item.title}</p></div>
+
+       <div> <p style={{fontSize:'15px',color:'#3f72af'}}>{item.pragraph}</p></div>
+
            </div>
+
+           
         )
       })
     }

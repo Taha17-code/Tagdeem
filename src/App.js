@@ -5,6 +5,7 @@ import { Fragment } from 'react';
 import Header from './Components/Utility/Header';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePages from './Pages/Home/HomePages';
+import Footer from './Components/Utility/Footer';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       </BrowserRouter>
       
     </div>
+    <Footer/>
     </Fragment>
   );
 }

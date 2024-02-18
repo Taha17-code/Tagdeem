@@ -14,7 +14,7 @@ const Steps = () => {
       
     <div className='d-flex justify-content-center p-5'>
 
-    <div style={{width:'50%'}}><p style={{fontSize:'80px',fontWeight:'bold'}}> خطوات  عمل
+    <div style={{width:'50%'}}><p style={{fontSize:'60px',fontWeight:'bold'}}> خطوات  عمل
       سيرتك الذاتية</p></div>
     
 
