@@ -5,9 +5,39 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+  font-size: 12px;
+  font-weight: bold;
 }
 
+*{
+  font-family: 'Tajawal', sans-serif;
+  color: #112d4e;
+  /* font-weight: bold; */
+  margin-block-end: 0px;
+  margin-block-start: 0px;
+  margin: 0px;
+  /* background-color:  #f9f7f7; */
+  
+
+ 
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+
+
+/* 
+
+================Colors ================
+
+     #f9f7f7  ===> webstie Background 
+     #3f72af  ===> primary blue  
+     #112d4e  ===> secondary dark blue  
+     #dbe2ef  ===> third color  white-blue 
+
+*/

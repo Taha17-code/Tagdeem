@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { Row } from 'react-bootstrap';
+
+import { Fragment } from 'react';
+import Header from './Components/Utility/Header';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import HomePages from './Pages/Home/HomePages';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Fragment>
+    <Header/>
+    <div style={{backgroundColor:'#F9F7F7',minHeight:'670px',
+    paddingBottom:'50px',margin:'0px',minWidth:'100%'}}>
+     
+      <BrowserRouter>
+      <Routes>
+      <Route index element={<HomePages/>}/>
+      
+      </Routes>
+      
+      </BrowserRouter>
+      
     </div>
+    </Fragment>
   );
 }
 
