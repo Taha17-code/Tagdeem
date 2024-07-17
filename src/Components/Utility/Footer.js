@@ -7,7 +7,7 @@ const Footer = () => {
     <div style={{backgroundColor:'#3f72af',paddingTop:'150px',minHeight:'500px',textAlign:'center'}}
      >
 
-     <img src={logo2} style={{width:'150px'}}/>
+     <img src={logo2} style={{width:'150px',margin:'auto'}}/>
      <h6 style={{color:'#dbe2ef'}}>نحن هنا لمساعدتك في تقديم نفسك  للشركات والجهات المختصة
      بشكل يليق بإمكانياتك عبر السيرة الذاتية</h6>
     

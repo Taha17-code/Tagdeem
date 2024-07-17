@@ -17,8 +17,7 @@ function Header() {
             <Nav.Link href="#features">لماذا</Nav.Link>
             <Nav.Link href="#pricing">للتواصل</Nav.Link>
           
-          </Nav>
-          <Nav>
+         
             <Nav.Link href="#deets">خطوات  </Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
                تسجيل الدخول

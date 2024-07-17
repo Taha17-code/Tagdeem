@@ -3,6 +3,7 @@ import { Row } from 'react-bootstrap'
 import '../../Style/Home/Homepage.css'
 import CV from '../../assets/images/curriculum-vitae.png'
 import ResumeGif from '../../assets/images/Resume folder (1).gif'
+import { Link } from 'react-router-dom'
 
 
 const Homepage = () => {
@@ -18,15 +19,15 @@ const Homepage = () => {
    <p  style={{color:'#dbe2ef',wordBreak:'break-word'}}>نحن هنا لمساعدتك في تقديم نفسك  للشركات والجهات المختصة
    بشكل يليق بإمكانياتك عبر السيرة الذاتية</p>
 
-   <span className='homeButton' style={{border:'2px #dbe2ef solid',color:'#dbe2ef', }} > تواصل معنا </span>
-   <span className='homeButton' style={{border:'2px #112d4e solid',backgroundColor:'#112d4e',color:'#dbe2ef',}}> انشئ سيرة ذاتية  </span>
+   <p className='homeButton' style={{border:'2px #dbe2ef solid',color:'#dbe2ef', }} > تواصل معنا </p>
+   <Link to={'/login'}> <p className='homeButton' style={{border:'2px #112d4e solid',backgroundColor:'#112d4e',color:'#dbe2ef',}}> انشئ سيرة ذاتية  </p></Link> 
 
    
 
    </div>
 
 
-   <div><img src={ResumeGif} style={{maxWidth:'400px'}} fluid/></div>
+   <div><img src={ResumeGif} style={{maxWidth:'100%'}} fluid/></div>
    
     </div>
     </div>

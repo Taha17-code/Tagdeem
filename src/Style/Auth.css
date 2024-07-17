@@ -1,0 +1,112 @@
+.loginImg{
+
+    height:400px;
+    width:80%;
+    padding: 80px;
+    text-align: center;
+}
+
+.loginForm{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+    width: 40%;
+    padding-bottom: 50px;
+    /* background-color: #dbe2ef ; */
+    margin: 0px auto;
+    text-align: center;
+    border-radius: 20px
+
+}
+
+.loginForm *{
+
+text-decoration: none;
+border: none;
+border-radius: 5px;
+
+
+}
+
+.loginForm h2{
+    margin: 20px;
+    margin-bottom: 30px;
+}
+
+.loginForm input{
+    
+    margin: 20px;
+    height: 30px;
+    border: 2px solid #e7f0ff;
+}
+
+.loginForm .btns{
+    margin: 20px;
+    /* background-color: #87ABDD; */
+    color: whitesmoke;
+    align-items: center;
+    padding: auto;
+    
+    height: 35px;
+    cursor: pointer;
+   
+}
+
+.loginForm .btns:hover{
+    margin: 20px;
+    background-color: #3f72af;
+    color: whitesmoke;
+    height: 40px;
+    cursor: pointer;
+    scale: 1.03;
+
+   
+}
+
+.loginForm span{
+    margin: 0px;
+    font-size: 12px;
+}
+
+
+
+@media screen and (max-width:840px){
+    
+
+    .loginForm{
+
+        width: 50%;
+
+    }
+
+}
+
+@media screen and (max-width:600px){
+    
+
+    .loginForm{
+
+        width: 70%;
+
+    }
+
+    .loginForm span{
+       font-size: 12px;
+    }
+    
+
+}
+
+
+@media screen and (max-width:400px){
+    
+
+    .loginForm{
+
+        width: 90%;
+
+    }
+
+}
