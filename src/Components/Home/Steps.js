@@ -10,7 +10,7 @@ const Steps = () => {
     {number:'5',step:'حفظ'},
   ]
   return (
-    <div style={{paddingTop:'100px',minHeight:'600px'}}>
+    <div style={{paddingTop:'100px',minHeight:'600px'}} id='steps'>
       
     <div className='d-flex justify-content-center p-5'>
 

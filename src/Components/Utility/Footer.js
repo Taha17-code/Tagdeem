@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <Fragment>
     <div style={{backgroundColor:'#3f72af',paddingTop:'150px',minHeight:'500px',textAlign:'center'}}
-     >
+     id='contact'>
 
      <img src={logo2} style={{width:'150px',margin:'auto'}}/>
      <h6 style={{color:'#dbe2ef'}}>نحن هنا لمساعدتك في تقديم نفسك  للشركات والجهات المختصة

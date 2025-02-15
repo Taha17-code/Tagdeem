@@ -11,7 +11,7 @@ const AuthButnWithProvider = ({Icon,label,provider}) => {
     switch ( provider ) {
       case "google":
         // console.log("inside Google Auth")
-          await signInWithRedirect(auth,GoogleAuthProvider).then((result)=>{
+          await signInWithRedirect(auth,googleProvider).then((result)=>{
             console.log(result)
           }).catch(err=>{
             console.log(`Error:, ${err.Message}`)
@@ -20,7 +20,11 @@ const AuthButnWithProvider = ({Icon,label,provider}) => {
 
       case "github":
           // console.log("inside Github Auth")
-          await signInWithRedirect;
+          await signInWithRedirect(auth,githubProvider).then((result)=>{
+            console.log(result)
+          }).catch(err=>{
+            console.log(`Error:, ${err.Message}`)
+          })
           break; 
       default:
         console.log('inside Google Auth')  
