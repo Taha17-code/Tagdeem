@@ -16,7 +16,7 @@ const Steps = () => {
 
     <div style={{width:'50%'}}><p style={{fontSize:'60px',fontWeight:'bolder'}}> خطوات  عمل
       سيرتك الذاتية</p></div>
-    
+  
 
     <div>
 
