@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import '../../Style/Auth.css';
@@ -12,13 +12,17 @@ import { useAuth } from '../../contexts/AuthContext';
 const Login = () => {
   const navigate = useNavigate();
   const { currentUser, loading } = useAuth();
-
+    const toastShown = useRef(false);
   useEffect(() => {
-    if (loading) return;
+      if (!currentUser || toastShown.current) return;
+      toastShown.current = true;
+     if (loading) return;
 
     // If already logged in, redirect to home
     if (currentUser) {
       navigate("/", { replace: true });
+      // toast.success(`مرحبًا TAHA`);
+      toast.success(`مرحبًا ${currentUser.displayName || "بك"}`);
       return;
     }
 
@@ -27,8 +31,8 @@ const Login = () => {
       .then((result) => {
         if (result?.user) {
           console.log("تم تسجيل الدخول (redirect):", result.user);
-          toast.success(`مرحبًا ${result.user.displayName || ''}`);
           navigate("/", { replace: true });
+          toast.success(`مرحبًا ${result.user.displayName || ''}`);
         }
       })
       .catch((err) => console.log(err.message));

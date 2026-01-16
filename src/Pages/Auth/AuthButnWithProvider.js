@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaChevronRight } from 'react-icons/fa6';
 import '../../Style/Auth.css';
-import { GoogleAuthProvider, GithubAuthProvider, signInWithRedirect } from 'firebase/auth';
+import { GoogleAuthProvider, GithubAuthProvider, signInWithRedirect, signInWithPopup } from 'firebase/auth';
 import { auth } from '../../config/firebase.config';
 import { toast } from 'react-toastify';
 
@@ -16,11 +16,11 @@ const AuthButnWithProvider = ({ Icon, label, provider }) => {
       switch (provider) {
         case "google":
           // فقط نفذ redirect، لا تستخدم then هنا
-          await signInWithRedirect(auth, googleProvider);
+          await signInWithPopup(auth, googleProvider);
           break;
 
         case "github":
-          await signInWithRedirect(auth, githubProvider);
+          await  signInWithPopup(auth, githubProvider);
           break;
 
         default:
