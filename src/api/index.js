@@ -1,36 +1,50 @@
-import { onSnapshot } from "firebase/firestore";
-import { auth } from "../config/firebase.config";
+import { doc, onSnapshot, setDoc } from "firebase/firestore";
+import { auth, db } from "../config/firebase.config";
 import { onAuthStateChanged } from "firebase/auth";
 import { toast } from "react-toastify";
+export const getUserDetail = () => {
+  return new Promise((resolve, reject) => {
 
-export const  getUserDetail =  () => {
+    const unsubscribeAuth = auth.onAuthStateChanged(async (userCred) => {
 
-    return new Promise((resolve, reject) => {
-       /* setTimeout(() => {
+      if (!userCred) {
+        reject(new Error("User not authenticated"));
+        unsubscribeAuth();
+        return;
+      }
 
-            resolve({
-                id: 1,
-                name: 'John Doe',
-                email: ''
-            });
-        }, 2000);*/
-         const unsubsscibe = auth.onAuthStateChanged( (userCred) => {
-            // console.log('User state changed:', userCred);
-             
-             if(userCred){
-                const userdata= userCred.providerData[0];
-                // console.log(userdata);
-                toast.success(' تم تسجيل الدخول بنجاح ')
-                resolve(userdata);
-                console.log(userdata)
-             }
-             else{
-                 reject(new Error('User not authenticated'));
-             }
+      const uid = userCred.uid; // الصحيح
+      const userRef = doc(db, "users", uid);
 
-             // make sure to unsubscribe when done for the listener  to prevent the memory leaks
-             unsubsscibe();
-         }) 
+      try {
+        const unsubscribeSnapshot = onSnapshot(userRef, async (_doc) => {
 
+          if (_doc.exists()) {
+            resolve(_doc.data());
+          } else {
+            const userData = {
+              uid,
+              name: userCred.displayName || "",
+              email: userCred.email || "",
+              photoURL: userCred.photoURL || "",
+              provider: userCred.providerData[0]?.providerId
+            };
+
+            await setDoc(userRef, userData);
+            resolve(userData);
+          }
+
+          unsubscribeSnapshot(); // وقف listener
+        });
+
+        toast.success("تم تسجيل الدخول بنجاح");
+
+      } catch (err) {
+        reject(err);
+      }
+
+      unsubscribeAuth(); // وقف auth listener
     });
-}
+
+  });
+};

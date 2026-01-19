@@ -8,38 +8,33 @@ import { getRedirectResult } from 'firebase/auth';
 import { auth } from '../../config/firebase.config';
 import { toast } from 'react-toastify';
 import { useAuth } from '../../contexts/AuthContext';
+import MainSpinner from '../MainSpinner';
 
 const Login = () => {
   const navigate = useNavigate();
-  const { currentUser, loading } = useAuth();
-    const toastShown = useRef(false);
+  const{currentUser,isLoading,isError,refetch}= useAuth();
   useEffect(() => {
-      if (!currentUser || toastShown.current) return;
-      toastShown.current = true;
-     if (loading) return;
-
-    // If already logged in, redirect to home
-    if (currentUser) {
+    if (!isLoading && currentUser) {
       navigate("/", { replace: true });
-      // toast.success(`مرحبًا TAHA`);
-      toast.success(`مرحبًا ${currentUser.displayName || "بك"}`);
-      return;
+      console.log(auth.currentUser);
     }
-
+      
+  }, [currentUser, isLoading]);
     // Check redirect result
     getRedirectResult(auth)
       .then((result) => {
         if (result?.user) {
+           
           console.log("تم تسجيل الدخول (redirect):", result.user);
+          toast.success(`مرحبًا ${result.user.displayName || result.user.email?.split('@')[0] || ''}`);
+         
           navigate("/", { replace: true });
-          toast.success(`مرحبًا ${result.user.displayName || ''}`);
-        }
+          
+               }
       })
-      .catch((err) => console.log(err.message));
-  }, [navigate, currentUser, loading]);
-
-  if (loading) {
-    return <div>Loading...</div>;
+    
+  if (isLoading) {
+    return <MainSpinner />;
   }
 
   return (

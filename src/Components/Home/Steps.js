@@ -4,7 +4,7 @@ const Steps = () => {
 
   const steps=[
     {number:'1',step:'تسجيل الدخول'},
-    {number:'2',step:' انشئ سيرة ذاتية'},
+    {number:'2',step:'  انشئ سيرة ذاتية '},
     {number:'3',step:'اختر النموذج المناسب'},
     {number:'4',step:' املئ البيانات'},
     {number:'5',step:'حفظ'},

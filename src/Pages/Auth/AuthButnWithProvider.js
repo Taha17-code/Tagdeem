@@ -7,7 +7,16 @@ import { toast } from 'react-toastify';
 
 // أنشئ المزودين مرة واحدة خارج الدالة لتجنب إعادة الإنشاء في كل مرة
 const googleProvider = new GoogleAuthProvider();
+// إضافة إعدادات لإجبار اختيار الحساب
+googleProvider.setCustomParameters({
+  prompt: 'select_account'
+});
+
 const githubProvider = new GithubAuthProvider();
+// إضافة إعدادات للسماح بتسجيل حساب جديد إذا لزم الأمر
+githubProvider.setCustomParameters({
+  allow_signup: 'true'
+});
 
 const AuthButnWithProvider = ({ Icon, label, provider }) => {
 

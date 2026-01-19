@@ -19,9 +19,9 @@ const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// تفعيل persistence (يبقى مسجل بعد إعادة التحميل)
-setPersistence(auth, browserLocalPersistence)
-  .then(() => console.log("Firebase persistence: Local"))
-  .catch((err) => console.log("Firebase persistence error:", err.message));
+// // تفعيل persistence (يبقى مسجل بعد إعادة التحميل)
+// setPersistence(auth, browserLocalPersistence)
+//   .then(() => console.log("Firebase persistence: Local"))
+//   .catch((err) => console.log("Firebase persistence error:", err.message));
 
 export { auth, db };
