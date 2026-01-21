@@ -29,7 +29,7 @@ const WhyCV = () => {
   ]
 
   return (
-    <div style={{paddingTop:'100px',width:'100%',margin:'20px'}} >
+    <div style={{paddingTop:'150px',minHeight:'600px'}}  >
 
     <p style={{fontSize:'50px',fontWeight:'bolder',textAlign:'center'}}>لماذا السيرة الذاتية ؟</p>
 

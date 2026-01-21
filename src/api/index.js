@@ -1,49 +1,43 @@
-import { doc, onSnapshot, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { auth, db } from "../config/firebase.config";
 import { onAuthStateChanged } from "firebase/auth";
-import { toast } from "react-toastify";
+
 export const getUserDetail = () => {
   return new Promise((resolve, reject) => {
 
-    const unsubscribeAuth = auth.onAuthStateChanged(async (userCred) => {
+    const unsubscribe = onAuthStateChanged(auth, async (userCred) => {
+
+      unsubscribe(); // أوقف مباشرة بعد أول استجابة
 
       if (!userCred) {
         reject(new Error("User not authenticated"));
-        unsubscribeAuth();
         return;
       }
 
-      const uid = userCred.uid; // الصحيح
-      const userRef = doc(db, "users", uid);
-
       try {
-        const unsubscribeSnapshot = onSnapshot(userRef, async (_doc) => {
+        const uid = userCred.uid;
+        const userRef = doc(db, "users", uid);
 
-          if (_doc.exists()) {
-            resolve(_doc.data());
-          } else {
-            const userData = {
-              uid,
-              name: userCred.displayName || "",
-              email: userCred.email || "",
-              photoURL: userCred.photoURL || "",
-              provider: userCred.providerData[0]?.providerId
-            };
+        const snap = await getDoc(userRef);
 
-            await setDoc(userRef, userData);
-            resolve(userData);
-          }
+        if (snap.exists()) {
+          resolve(snap.data());
+        } else {
+          const userData = {
+            uid,
+            name: userCred.displayName || "",
+            email: userCred.email || "",
+            photoURL: userCred.photoURL || "",
+            provider: userCred.providerData[0]?.providerId
+          };
 
-          unsubscribeSnapshot(); // وقف listener
-        });
-
-        toast.success("تم تسجيل الدخول بنجاح");
+          await setDoc(userRef, userData);
+          resolve(userData);
+        }
 
       } catch (err) {
         reject(err);
       }
-
-      unsubscribeAuth(); // وقف auth listener
     });
 
   });

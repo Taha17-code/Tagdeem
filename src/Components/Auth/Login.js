@@ -15,7 +15,7 @@ const Login = () => {
   const{currentUser,isLoading,isError,refetch}= useAuth();
   useEffect(() => {
     if (!isLoading && currentUser) {
-      navigate("/", { replace: true });
+      navigate("/RusmePage", { replace: true });
       console.log(auth.currentUser);
     }
       

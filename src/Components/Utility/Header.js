@@ -2,10 +2,12 @@ import {Container,Nav,Navbar} from 'react-bootstrap';
 import Logo from '../../assets/images/شعار تقديم.png'
 import { Fragment } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
+import useUser from './../../hooks/useUser';
 
 
 function Header() {
-  const { currentUser } = useAuth();
+
+  const { currentUser ,isLoading,isError,refetch } = useAuth();
   return (
     
     <Fragment>
@@ -17,9 +19,9 @@ function Header() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto"  >
-            <Nav.Link href="#whycv">لماذا</Nav.Link>
+            <Nav.Link href="/#whycv">لماذا</Nav.Link>
             <Nav.Link href="#contact">للتواصل</Nav.Link>
-          
+           
         
                 <Nav.Link href="/#steps">خطوات  </Nav.Link>
                 
@@ -31,7 +33,7 @@ function Header() {
             </Nav.Link>
       )}
             
-          </Nav>
+           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>

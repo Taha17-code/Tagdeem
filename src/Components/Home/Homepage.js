@@ -47,7 +47,7 @@ const Homepage = () => {
    
    
    <Link to={'/login'}> <p className='homeButton' style={{border:'2px #112d4e solid',backgroundColor:'#112d4e',color:'#dbe2ef',}}>
-    انشئ سيرة ذاتية  </p></Link> 
+    انشئ سيرة ذاتية  </p> </Link> 
 
     {
       

@@ -12,6 +12,7 @@ import { QueryClient,QueryClientProvider } from 'react-query';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import { AuthProvider } from './contexts/AuthContext';
+import SelectResumePage from './Pages/SelectResumePage';
 
 function App() {
   
@@ -31,6 +32,7 @@ function App() {
       <Routes>
       <Route index element={<HomePages/>}/>
       <Route path="/login" element={<Authentication/>}/>
+      <Route path="/RusmePage" element={<SelectResumePage/>}/>
       
       </Routes>
       
@@ -39,6 +41,7 @@ function App() {
       
       </Suspense>
       <ToastContainer position='top-right' />
+      
     </div>
     <Footer/>
     
