@@ -3,6 +3,8 @@ import Logo from '../../assets/images/شعار تقديم.png'
 import { Fragment } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import useUser from './../../hooks/useUser';
+import { AnimatePresence , motion } from 'framer-motion';
+import MainSpinner from './../MainSpinner';
 
 
 function Header() {
@@ -11,7 +13,8 @@ function Header() {
   return (
     
     <Fragment>
-    <div style={{backgroundColor:'#f9f7f7',position:'fixed',minWidth:'100%',display:'block'}} >
+    <div style={{backgroundColor:'#f9f7f7',position:'fixed',minWidth:'100%',display:'block'}} 
+     className='w-full flex items-center justify-between px-4 py-2 shadow-md z-50'>
    
     <Navbar collapseOnSelect expand="lg"   >
       <Container >
@@ -26,18 +29,30 @@ function Header() {
                 <Nav.Link href="/#steps">خطوات  </Nav.Link>
                 
                 {currentUser ? (
-        <Nav.Link   style={{minWidth:"300px",cursor:'not-allowed'}}>مرحبًا {currentUser.displayName || currentUser.email?.split('@')[0] || 'المستخدم'}</Nav.Link>
+        <Nav.Link   style={{minWidth:"100px",cursor:'not-allowed'}}>مرحبًا {currentUser.displayName || currentUser.email?.split('@')[0] || 'المستخدم'}</Nav.Link>
       ) : (
         <Nav.Link   eventKey={2} href="./login" >
                تسجيل الدخول
             </Nav.Link>
       )}
+
+      {/* --------------------- Photo display ----------------------*/}
+       <AnimatePresence>
+      {isLoading ? (<MainSpinner />)  : (<Fragment> {currentUser? <motion.div initial={{ opacity: 0 } } animate={{ opacity: 1 }}> {
+        <div className="w-10 rounded-full relative flex items-center justify-center" style={{marginLeft:'10px'}}> 
+        <img src={ currentUser?.photoURL} className='w-full h-full object-cover rounded-full' referrerPolicy='no-referrer' alt=""/></div>
+      }</motion.div> 
+      :  <div className="w-10 rounded-full relative flex items-center justify-center" style={{marginLeft:'10px'}}> 
+        <img src="/src/assets/images/user.png" className='w-full h-full object-cover rounded-full' referrerPolicy='no-referrer' alt=""/></div>
+      }</Fragment>)}
+    </AnimatePresence>
             
            </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
     </div>
+   
     </Fragment>
   );
 }
