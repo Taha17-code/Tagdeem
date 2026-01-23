@@ -43,7 +43,7 @@ function Header() {
         <img src={ currentUser?.photoURL} className='w-full h-full object-cover rounded-full' referrerPolicy='no-referrer' alt=""/></div>
       }</motion.div> 
       :  <div className="w-10 rounded-full relative flex items-center justify-center" style={{marginLeft:'10px'}}> 
-        <img src="/src/assets/images/user.png" className='w-full h-full object-cover rounded-full' referrerPolicy='no-referrer' alt=""/></div>
+        <img src="../src/assets/images/user.png" className='w-full h-full object-cover rounded-full' referrerPolicy='no-referrer' alt=""/></div>
       }</Fragment>)}
     </AnimatePresence>
             
