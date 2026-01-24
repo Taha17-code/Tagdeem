@@ -13,6 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import { AuthProvider } from './contexts/AuthContext';
 import SelectResumePage from './Pages/SelectResumePage';
+import Porfile from './Components/Profile/Porfile';
 
 function App() {
   
@@ -30,9 +31,12 @@ function App() {
       <BrowserRouter>
       
       <Routes>
+      
       <Route index element={<HomePages/>}/>
       <Route path="/login" element={<Authentication/>}/>
       <Route path="/RusmePage" element={<SelectResumePage/>}/>
+      <Route path="/Profile" element={<Porfile/>}/>
+  
       
       </Routes>
       

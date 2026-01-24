@@ -5,6 +5,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import useUser from './../../hooks/useUser';
 import { AnimatePresence , motion } from 'framer-motion';
 import MainSpinner from './../MainSpinner';
+import userImg from '../../assets/images/user.png';
 
 
 function Header() {
@@ -38,13 +39,36 @@ function Header() {
 
       {/* --------------------- Photo display ----------------------*/}
        <AnimatePresence>
-      {isLoading ? (<MainSpinner />)  : (<Fragment> {currentUser? <motion.div initial={{ opacity: 0 } } animate={{ opacity: 1 }}> {
-        <div className="w-10 rounded-full relative flex items-center justify-center" style={{marginLeft:'10px'}}> 
-        <img src={ currentUser?.photoURL} className='w-full h-full object-cover rounded-full' referrerPolicy='no-referrer' alt=""/></div>
-      }</motion.div> 
-      :  <div className="w-10 rounded-full relative flex items-center justify-center" style={{marginLeft:'10px'}}> 
-        <img src="../src/assets/images/user.png" className='w-full h-full object-cover rounded-full' referrerPolicy='no-referrer' alt=""/></div>
+
+
+      {isLoading ? (<MainSpinner />)  : (<Fragment> {
+         currentUser ?(
+           <div className="w-10 rounded-md relative flex items-center justify-center  cursor-pointer relative" style={{marginLeft:'10px'}}> 
+         <img
+            src={currentUser?.photoURL ||  userImg}
+            className="w-full h-full object-cover rounded-md"
+            referrerPolicy="no-referrer"
+            alt=""/>
+             {/* ----------------   عند الضغط على الصورة يظهر هذا -------------------------------------------- */}
+             
+            <div className='absolute px-3 rounded-md bg-white  top-5 flex  items-center justify-start  gap-5 w-64 pt-12 p-2 right-5 shadow-lg'>
+                 <div className="w-full rounded-full relative flex flex-col items-center justify-center  cursor-pointer relative" style={{marginLeft:'10px'}}> 
+         <img
+            src={currentUser?.photoURL ||  userImg}
+            className="w-10 h-10 rounded-full justify-center items-center text-center p-1 inline-block object-cover cursor-no-drop" 
+            referrerPolicy="no-referrer"
+            alt=""/>
+            {currentUser?.displayName ? ( <p  className='w-full text-center py-2  inline-block cursor-no-drop'>{ currentUser.displayName}</p> ): (<p> مستخدم</p>)}
+            <Nav.Link href="/Profile" className='w-full  text-gray-50 hover:#f9f7f7 text-center py-2  inline-block'>الملف الشخصي</Nav.Link>
+            <Nav.Link href="/Profile" className='w-full text-gray-50 hover:#f9f7f7 text-center py-2  inline-block'>تسجيل الخروج </Nav.Link>
+             </div>
+            </div>
+            </div>
+         ): null
+       
+    
       }</Fragment>)}
+      
     </AnimatePresence>
             
            </Nav>

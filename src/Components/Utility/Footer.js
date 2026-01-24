@@ -16,7 +16,7 @@ const Footer = () => {
     
       
     </div>
-    <div style={{backgroundColor:'#112d4e',color:'#dbe2ef',textAlign:'center'}} > Made with ❤️ by Taha Alhaddad  2024 All rights reserved.</div>
+    <div style={{backgroundColor:'#112d4e',color:'#dbe2ef',textAlign:'center'}} > Made with ❤️ by Taha Alhaddad  2026 All rights reserved.</div>
     </footer>
     </Fragment>
   )
