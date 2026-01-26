@@ -44,11 +44,11 @@ function App() {
       </BrowserRouter>
       
       </Suspense>
-      <ToastContainer position='top-right' />
+     
       
     </div>
     <Footer/>
-    
+     <ToastContainer position='top-right' />
     </Fragment>
     </AuthProvider>
     <ReactQueryDevtools initialIsOpen={false}/>

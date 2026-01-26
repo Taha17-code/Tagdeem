@@ -1,0 +1,17 @@
+.textcolor{
+    color: gray;
+}
+
+.textcolor:hover{
+    color: #112d4e;
+}
+
+.logout-text {
+   
+  color: rgb(199, 50, 50) !important;
+}
+
+.logout-icon {
+  fill : rgb(199, 50, 50) !important;
+}
+
