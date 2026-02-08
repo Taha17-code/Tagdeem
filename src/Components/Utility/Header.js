@@ -14,6 +14,7 @@ import { useQueryClient } from "react-query";
 import { auth } from '../../config/firebase.config';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { adminIds }  from '../../utils/Helpers';
 
 
 
@@ -54,7 +55,7 @@ const signOutUser = async () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto"  >
-            <Nav.Link href="/#whycv">لماذا</Nav.Link>
+            <Nav.Link style={{fontWeight:'bolder'}} href="/login">انشئ سيرة ذاتية</Nav.Link>
             <Nav.Link href="#contact">للتواصل</Nav.Link>
            
         
@@ -97,7 +98,13 @@ const signOutUser = async () => {
             referrerPolicy="no-referrer"
             alt=""/>
             {currentUser?.displayName ? ( <p  className='w-full text-center py-2  inline-block cursor-no-drop'>{ currentUser.displayName}</p> ): (<p> مستخدم</p>)}
-            <Nav.Link   href="/Profile" className='w-full text-center py-2  inline-block  textcolor' >الملف الشخصي</Nav.Link>
+            <Nav.Link   href="/Profile/:uid" className='w-full text-center py-2  inline-block  textcolor' >الملف الشخصي</Nav.Link>
+
+           {
+            adminIds.includes(currentUser.uid) && (
+               <Nav.Link   href="/AddNewTemplate/create" className='w-full text-center py-2  inline-block  textcolor' >إضافة قالب جديد </Nav.Link>
+            )
+           }
 
             <div className='  w-full px-2 py-2 border-t border-gray-200 flex  felx flex-row items-center justify-between group ' onClick={signOutUser}>
              

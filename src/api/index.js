@@ -22,7 +22,7 @@ export const getUserDetail = () => {
 
         if (snap.exists()) {
           resolve(snap.data());
-        } else {
+        } else { 
           const userData = {
             uid,
             name: userCred.displayName || "",

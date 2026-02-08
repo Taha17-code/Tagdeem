@@ -12,8 +12,11 @@ import { QueryClient,QueryClientProvider } from 'react-query';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import { AuthProvider } from './contexts/AuthContext';
-import SelectResumePage from './Pages/SelectResumePage';
+import SelectResumePage from './Pages/RusmePages/SelectResumePage';
 import Porfile from './Components/Profile/Porfile';
+import MainSpinner from './Components/MainSpinner';
+import AddNewTemplate from './Pages/RusmePages/AddNewTemplate';
+import { CreateRusme, TemplateDesignDetails } from './Pages';
 
 function App() {
   
@@ -21,12 +24,12 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
     <AuthProvider>
-    <Fragment>
+    <Fragment className="App">
     <Header/>
-    <div style={{backgroundColor:'#F9F7F7',minHeight:'670px',
-    paddingBottom:'50px',margin:'0px',minWidth:'100%'}}>
+    <main style={{backgroundColor:'#F9F7F7',minHeight:'670px',
+    paddingBottom:'50px',margin:'0px',minWidth:'100%'}}  className='main'>
 
-     <Suspense fallback={<div> Loading..</div>}>
+     <Suspense fallback={MainSpinner}>
       
       <BrowserRouter>
       
@@ -36,6 +39,10 @@ function App() {
       <Route path="/login" element={<Authentication/>}/>
       <Route path="/RusmePage" element={<SelectResumePage/>}/>
       <Route path="/Profile" element={<Porfile/>}/>
+      <Route path="/AddNewTemplate/create" element={<AddNewTemplate/>}/>
+      <Route path="/CreateRusme/*" element={<CreateRusme/>}/>
+      <Route path="/Profile/:uid" element={<Porfile/>}/>
+      <Route pathe= "/TemplateDesignDetails/:templateID" element={<TemplateDesignDetails/>}/>
   
       
       </Routes>
@@ -46,7 +53,7 @@ function App() {
       </Suspense>
      
       
-    </div>
+    </main>
     <Footer/>
      <ToastContainer position='top-right' />
     </Fragment>

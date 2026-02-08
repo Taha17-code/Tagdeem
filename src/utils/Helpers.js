@@ -1,0 +1,1 @@
+export const adminIds = ["HfwDtwmdRchDbVzObwsOIGZdlpn1"];//أضف معرفات الأدمن هنا 

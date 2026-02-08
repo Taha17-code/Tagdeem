@@ -46,3 +46,20 @@ code {
      #dbe2ef  ===> third color  white-blue 
 
 */
+
+
+.App {
+
+   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main{
+
+    flex: 1; /* يخلي الماين يتمدد بين الهيدر والفوتر */
+
+  background-color: #F9F7F7;
+  padding-bottom: 50px;
+  padding-top: 120px;
+}

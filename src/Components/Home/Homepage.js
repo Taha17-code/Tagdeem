@@ -20,7 +20,7 @@ const Homepage = () => {
   }, []);
 
   return (
-    <div style={{ backgroundColor: '#3f72af', paddingTop: '150px', minHeight: '600px' }}>
+    <div style={{ backgroundColor: '#3f72af', minHeight: '600px' }}>
       <div className='d-flex flex-column flex-md-row justify-content-center align-items-center p-5 gap-4'>
         
         {/* النصوص + الأزرار */}

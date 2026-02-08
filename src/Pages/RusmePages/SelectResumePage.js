@@ -1,6 +1,6 @@
 import React from 'react'
 import { HashLoader } from 'react-spinners';
-import MainSpinner from '../Components/MainSpinner';
+import MainSpinner from '../../Components/MainSpinner';
 
 const SelectResumePage = () => {
   
